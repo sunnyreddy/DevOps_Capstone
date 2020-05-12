@@ -18,9 +18,10 @@ pipeline {
 			steps {
 				withAWS(region:'us-east-2', credentials:'MyCredentials') {
 					sh '''
-						aws --version
+						sudo apt-get remove --auto-remove awscli
+						ln -s /home/ubuntu/.local/bin/aws /usr/bin/aws
 						pip install awscli --upgrade
-						aws --version
+						awscli --version
 						aws eks --region us-east-2 update-kubeconfig --name capstonecluster
 					'''
 				}
