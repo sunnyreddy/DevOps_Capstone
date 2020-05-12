@@ -19,7 +19,7 @@ pipeline {
 				withAWS(region:'us-east-2', credentials:'MyCredentials') {
 					sh '''
 						aws --version
-						sudo apt-get remove awscli
+						apt-get remove awscli
 						aws --version
 						pip install awscli --upgrade
 						aws --version
